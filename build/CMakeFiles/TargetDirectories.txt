@@ -1,0 +1,3 @@
+/home/fakys/projects/unix_micro_controllers_operation_system/build/CMakeFiles/unix_operation_system.dir
+/home/fakys/projects/unix_micro_controllers_operation_system/build/CMakeFiles/edit_cache.dir
+/home/fakys/projects/unix_micro_controllers_operation_system/build/CMakeFiles/rebuild_cache.dir
