@@ -37,10 +37,11 @@ void init_interrupts() {
 }
 
 int os_kernel::init_os_kernel() {
+    os_kernel::useKernelMod();
     os_kernel::init_memory_controller();
 
     //Базовое прерываение на проверку состояния ядра
-    os_kernel::registerInterruptSec(0, &os_kernel::checkOsKernelState);
+    os_kernel::registerInterruptSec(0.2, &os_kernel::checkOsKernelState);
 
     init_interrupts();
     return 0;

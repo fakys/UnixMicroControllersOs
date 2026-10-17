@@ -7,11 +7,13 @@
 
 #include <interrupt.h>
 #include "memory_controller.h"
+#include "os_user_mod.h"
 
 namespace os_kernel {
     typedef struct {
         os_kernel::InterruptQueue interruptQueue;
         os_kernel::MemoryController memoryController;
+        os_kernel::UserMod userMod;
     } OsKernel;
 
     extern OsKernel kernel;

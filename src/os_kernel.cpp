@@ -7,8 +7,11 @@
 
 int main() {
     os_kernel::init_os_kernel();
+    os_kernel::useUserMod();
+
     userMain();
 
+    os_kernel::useKernelMod();
     while (true) {
 
 
