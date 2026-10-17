@@ -7,9 +7,6 @@
 
 #include "os_kernel.h"
 #include <unix_os.h>
-// #include <util/delay.h>
-#include <util/delay.h>
-
 #include "memory_controller.h"
 
 os_kernel::OsKernel os_kernel::kernel;
@@ -40,6 +37,10 @@ int os_kernel::init_os_kernel() {
     os_kernel::useKernelMod();
     os_kernel::init_memory_controller();
 
+#ifdef  USE_UART
+    //инит uart
+    os_kernel::initUartManager();
+#endif
     //Базовое прерываение на проверку состояния ядра
     os_kernel::registerInterruptSec(0.2, &os_kernel::checkOsKernelState);
 

@@ -5,7 +5,7 @@
 #include "avr_string.h"
 #include <util/delay.h>
 
-bool appendByte(String* str, uint8_t byte) {
+bool appendStringByte(String* str, uint8_t byte) {
     if (str->size >= str->reserve) {
         return false;
     }
@@ -14,7 +14,7 @@ bool appendByte(String* str, uint8_t byte) {
     return true;
 }
 
-bool unshiftByte(String* str, uint8_t byte) {
+bool unshiftStringByte(String* str, uint8_t byte) {
     if (str->size >= str->reserve) {
         return false;
     }

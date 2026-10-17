@@ -11,6 +11,7 @@
 #include <stdlib.h>
 
 #define MAX_INTERRUPT_HANDLER_COUNT 10
+#define MAX_SOKET_COUNT 10
 #define FRE_OS_KERNEL 6250
 #define ALL_MEMORY 2048
 

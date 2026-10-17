@@ -16,9 +16,9 @@ typedef struct {
 } String;
 
 
-bool appendByte(String* str, uint8_t byte);
+bool appendStringByte(String* str, uint8_t byte);
 
-bool unshiftByte(String* str, uint8_t byte);
+bool unshiftStringByte(String* str, uint8_t byte);
 
 //Сравнивет префиксы строк
 bool prefixSearchString(String* search, String* str);

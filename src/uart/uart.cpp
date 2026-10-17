@@ -5,6 +5,7 @@
 #include "uart.h"
 
 
+//true когда передача была успешно завершена
 bool dataSuccessSend() {
     return (UCSR0A & (1 << TXC0));
 }
@@ -14,12 +15,14 @@ bool checkTransferBuffer() {
     return (UCSR0A & (1 << UDRE0));
 }
 
+//Отправка байта пл uart
 bool sendMessage(uint8_t byte) {
     //Отправляем наш бит
     UDR0 = byte;
 
     return true;
 }
+
 //Вернет true когда буфер будет готов к чтению
 bool bufferReadyReadData() {
     return (UCSR0A & (1 << RXC0));

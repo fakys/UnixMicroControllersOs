@@ -18,11 +18,14 @@ add_definitions(-DF_CPU=16000000UL)
 add_definitions(-DCPU_RATE=16000000)
 add_definitions(-DSTEP_INTERRUPT=0.1)
 
+add_definitions(-DUSE_UART=1)
+add_definitions(-DUSE_DEVICE_CONTROLLER_PROTO_FOR_UART=1)
+add_definitions(-DUART_BAUD_RATE=9600)
+add_definitions(-DUART_MAX_BUFFER_SIZE=90)
+
 add_executable(unix_operation_system
         ${CMAKE_SOURCE_DIR}/main.cpp
         ${CMAKE_SOURCE_DIR}/src/os_kernel.cpp
-        ${CMAKE_SOURCE_DIR}/src/proto/uart_handler.cpp
-        ${CMAKE_SOURCE_DIR}/src/proto/uart_proto.cpp
         ${CMAKE_SOURCE_DIR}/src/uart/uart.cpp
         ${CMAKE_SOURCE_DIR}/src/data_types/avr_string.cpp
         ${CMAKE_SOURCE_DIR}/src/data_types/avr_array.cpp
@@ -44,7 +47,9 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mmcu=${MCU}")
 target_include_directories(
         unix_operation_system PRIVATE
         ${CMAKE_SOURCE_DIR}/include
-        ${CMAKE_SOURCE_DIR}/include/proto
+        ${CMAKE_SOURCE_DIR}/include/device_controller_proto
+        ${CMAKE_SOURCE_DIR}/include/os_kernel/soket
+        ${CMAKE_SOURCE_DIR}/include/os_kernel/proto
         ${CMAKE_SOURCE_DIR}/include/helpers
         ${CMAKE_SOURCE_DIR}/include/os_kernel
         ${CMAKE_SOURCE_DIR}/include/uart
