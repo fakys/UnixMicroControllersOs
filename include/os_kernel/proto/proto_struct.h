@@ -15,7 +15,7 @@ typedef struct {
 } ProtoHeader;
 
 typedef struct {
-    uint16_t body_size;
+    uint8_t body_size;
     String* body_message;
 } ProtoBody;
 

@@ -74,6 +74,9 @@ ProtoMessage* uartWaitingMessage() {
         }
     }
 
-    return os_kernel::kernel.uartManager.proto->decodeMessage(str);
+    ProtoMessage* proto_message = os_kernel::kernel.uartManager.proto->decodeMessage(str);
+    os_kernel::clear_memory(str->character);
+    os_kernel::clear_memory(str);
+    return proto_message;
 }
 
